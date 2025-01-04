@@ -126,9 +126,16 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   void playGame() async {
     int wager = int.tryParse(wagerController.text) ?? 0;
 
-    if (wager <= 0 || wager > wallet) {
+    int maxWager = wallet ~/ 2;
+     if (selectedGameType == "3 Alike") {
+       maxWager = wallet ~/ 3;
+     } else if (selectedGameType == "4 Alike") {
+       maxWager = wallet ~/ 4;
+     }
+
+    if (wager <= 0 || wager > wallet || wager > maxWager) {
       Fluttertoast.showToast(
-        msg: "Invalid wager! Please enter a valid amount.",
+        msg: "Invalid wager! Maximum allowed for $selectedGameType is $maxWager.",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         backgroundColor: Colors.red,
@@ -159,6 +166,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
     wagerController.clear();
   }
+
 
   void openProfile() {
     Navigator.push(
