@@ -164,7 +164,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ProfilePage(wallet: wallet),
+        builder: (context) => ProfilePage(),
       ),
     );
   }
@@ -326,9 +326,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 }
 
 class ProfilePage extends StatelessWidget {
-  final int wallet;
-
-  ProfilePage({required this.wallet});
+  ProfilePage();
 
   @override
   Widget build(BuildContext context) {
@@ -348,12 +346,6 @@ class ProfilePage extends StatelessWidget {
             SizedBox(height: 10),
             Text("Phone: +91 9217319921", style: TextStyle(fontSize: 20)),
             SizedBox(height: 20),
-            Text("Wallet Balance: $wallet coins",
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.brown.shade600)
-            ),
           ],
         ),
       ),
