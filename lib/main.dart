@@ -300,14 +300,16 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: diceRolls.map((roll) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Transform.rotate(
-                          angle: _animation.value * pi * 2,
-                          child: Image.asset(
-                            'lib/assets/images/dice_$roll.png',
-                            width: 80.0,
-                            height: 80.0,
+                      return SafeArea(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Transform.rotate(
+                            angle: _animation.value * pi * 2,
+                            child: Image.asset(
+                              'lib/assets/images/dice_$roll.png',
+                              width: 78.0,
+                              height: 78.0,
+                            ),
                           ),
                         ),
                       );
